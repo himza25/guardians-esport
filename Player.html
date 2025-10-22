@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Player Profile - Guardians Esport</title>
+    <meta name="description" id="page-description" content="Detailed player profile and statistics for Guardians Esport Ember Blaze squad member.">
+    
+    <!-- Open Graph tags for Discord -->
+    <meta property="og:title" id="og-title" content="Player Profile - Guardians Esport">
+    <meta property="og:description" id="og-description" content="Detailed player profile and statistics for Guardians Esport Ember Blaze squad member.">
+    <meta property="og:type" content="profile">
+    
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/logo guardians.jpg" alt="Guardians Esport" class="logo-img">
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="squad.html" class="nav-link">Squad / Opponents</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <section class="back-section">
+        <div class="container">
+            <a href="squad.html" class="back-btn">
+                <span>← Back to Squad</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Player Profile -->
+    <section class="player-profile">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loading-state" class="loading-state">
+                <div class="loading-spinner"></div>
+                <p>Loading player profile...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="error-state" style="display: none;">
+                <div class="error-content">
+                    <h2>🚫 Player Not Found</h2>
+                    <p>The requested player profile could not be found.</p>
+                    <a href="squad.html" class="btn btn-primary">Return to Squad</a>
+                </div>
+            </div>
+
+            <!-- Player Content -->
+            <div id="player-content" class="player-content" style="display: none;">
+                <!-- Player Header -->
+                <div class="player-header">
+                    <div class="player-avatar-large">
+                        <span id="player-emojis" class="player-emojis">⚔️</span>
+                    </div>
+                    <div class="player-header-info">
+                        <h1 id="player-name" class="player-name-large">Loading...</h1>
+                        <h2 id="player-role" class="player-role-large">Loading...</h2>
+                        <div id="player-rank" class="player-rank">
+                            <span class="rank-icon">🏆</span>
+                            <span id="max-rank-text">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player Summary -->
+                <div class="player-section">
+                    <h3 class="section-title">📝 Summary</h3>
+                    <div class="section-content">
+                        <p id="player-summary" class="player-summary-text">Loading player summary...</p>
+                    </div>
+                </div>
+
+                <!-- Key Strengths -->
+                <div class="player-section">
+                    <h3 class="section-title">💪 Key Strengths</h3>
+                    <div class="section-content">
+                        <ul id="player-strengths" class="strengths-list">
+                            <li>Loading strengths...</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Current Season Stats -->
+                <div class="player-section">
+                    <h3 class="section-title">🏆 Current Season — Picks & Stats</h3>
+                    <div class="section-content">
+                        <div class="table-container">
+                            <table class="stats-table" id="current-season-table">
+                                <thead>
+                                    <tr>
+                                        <th>Hero</th>
+                                        <th>Power</th>
+                                        <th>Games</th>
+                                        <th>WR</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="current-season-tbody">
+                                    <tr>
+                                        <td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                                            Loading current season statistics...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- All-Time Stats -->
+                <div class="player-section">
+                    <h3 class="section-title">📊 All-Time — Picks & Stats</h3>
+                    <div class="section-content">
+                        <div class="table-container">
+                            <table class="stats-table" id="all-time-table">
+                                <thead>
+                                    <tr>
+                                        <th>Hero</th>
+                                        <th>Power</th>
+                                        <th>Games</th>
+                                        <th>WR</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="all-time-tbody">
+                                    <tr>
+                                        <td colspan="4" style="text-align: center; padding: 2rem; color: var(--text-muted);">
+                                            Loading all-time statistics...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Analysis -->
+                <div class="player-section">
+                    <h3 class="section-title">⚡ Performance Analysis</h3>
+                    <div class="section-content">
+                        <div class="performance-grid">
+                            <div class="performance-card">
+                                <div class="performance-header">
+                                    <h4>Current Season Highlights</h4>
+                                </div>
+                                <div class="performance-stats" id="current-season-highlights">
+                                    <div class="perf-stat">
+                                        <span class="perf-label">Best Win Rate</span>
+                                        <span class="perf-value" id="best-current-wr">Loading...</span>
+                                    </div>
+                                    <div class="perf-stat">
+                                        <span class="perf-label">Most Played</span>
+                                        <span class="perf-value" id="most-played-current">Loading...</span>
+                                    </div>
+                                    <div class="perf-stat">
+                                        <span class="perf-label">Highest Power</span>
+                                        <span class="perf-value" id="highest-power-current">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="performance-card">
+                                <div class="performance-header">
+                                    <h4>All-Time Records</h4>
+                                </div>
+                                <div class="performance-stats" id="all-time-highlights">
+                                    <div class="perf-stat">
+                                        <span class="perf-label">Signature Hero</span>
+                                        <span class="perf-value" id="signature-hero">Loading...</span>
+                                    </div>
+                                    <div class="perf-stat">
+                                        <span class="perf-label">Total Games</span>
+                                        <span class="perf-value" id="total-games">Loading...</span>
+                                    </div>
+                                    <div class="perf-stat">
+                                        <span class="perf-label">Career High</span>
+                                        <span class="perf-value" id="career-high-power">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="player-footer">
+                    <p class="footer-text">
+                        <strong>⚔️ EMBR — Player Cards</strong>
+                    </p>
+                    <p class="footer-subtext">
+                        Elite performance. Legendary gameplay. Unstoppable dedication.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo_guardians.jpg" alt="Guardians Esport" class="footer-logo-img">
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2024 Guardians Esport. All rights reserved.</p>
+                    <p>⚔️ EMBR — Elite. Dedicated. Unstoppable.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Additional CSS for performance analysis -->
+    <style>
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .performance-card {
+            background: rgba(2, 14, 31, 0.3);
+            border: 1px solid rgba(214, 158, 45, 0.2);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .performance-header h4 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .performance-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .perf-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: rgba(214, 158, 45, 0.05);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(214, 158, 45, 0.1);
+        }
+
+        .perf-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .perf-value {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced loading state */
+        .loading-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            gap: 1rem;
+        }
+
+        .loading-state p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Enhanced error state */
+        .error-state {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .error-content {
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .error-content h2 {
+            color: var(--danger);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .error-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .player-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .perf-stat {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .table-container {
+                font-size: 0.8rem;
+            }
+
+            .stats-table th,
+            .stats-table td {
+                padding: 0.5rem 0.75rem;
+            }
+        }
+
+        /* Animation for stats loading */
+        @keyframes fadeInStats {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stats-table tbody tr {
+            animation: fadeInStats 0.5s ease-out forwards;
+        }
+    </style>
+
+    <!-- Enhanced JavaScript for player profiles -->
+    <script>
+        // Enhanced player profile functionality
+        window.PlayerProfileEnhanced = {
+            loadPerformanceAnalysis: (player) => {
+                console.log('🔍 Loading performance analysis for:', player.name);
+                
+                // Current season analysis
+                if (player.currentSeason && player.currentSeason.length > 0) {
+                    const currentStats = player.currentSeason;
+                    
+                    // Best win rate
+                    const bestWR = Math.max(...currentStats.map(s => parseFloat(s.WR) || 0));
+                    const bestWRHero = currentStats.find(s => parseFloat(s.WR) === bestWR);
+                    document.getElementById('best-current-wr')?.textContent = 
+                        `${bestWR}% (${bestWRHero?.Hero || 'N/A'})`;
+                    
+                    // Most played
+                    const mostPlayed = currentStats.reduce((prev, current) => 
+                        (current.Games > prev.Games) ? current : prev);
+                    document.getElementById('most-played-current')?.textContent = 
+                        `${mostPlayed.Hero} (${mostPlayed.Games} games)`;
+                    
+                    // Highest power
+                    const highestPower = currentStats.reduce((prev, current) => 
+                        (current.Power > prev.Power) ? current : prev);
+                    document.getElementById('highest-power-current')?.textContent = 
+                        `${highestPower.Power.toLocaleString()} (${highestPower.Hero})`;
+                }
+
+                // All-time analysis
+                if (player.allTime && player.allTime.length > 0) {
+                    const allTimeStats = player.allTime;
+                    
+                    // Signature hero (most games)
+                    const signatureHero = allTimeStats.reduce((prev, current) => 
+                        (current.Games > prev.Games) ? current : prev);
+                    document.getElementById('signature-hero')?.textContent = 
+                        `${signatureHero.Hero} (${signatureHero.Games} games)`;
+                    
+                    // Total games
+                    const totalGames = allTimeStats.reduce((sum, stat) => sum + stat.Games, 0);
+                    document.getElementById('total-games')?.textContent = totalGames.toLocaleString();
+                    
+                    // Career high power
+                    const careerHigh = allTimeStats.reduce((prev, current) => 
+                        (current.Power > prev.Power) ? current : prev);
+                    document.getElementById('career-high-power')?.textContent = 
+                        `${careerHigh.Power.toLocaleString()} (${careerHigh.Hero})`;
+                }
+            }
+        };
+
+        // Override the player loading to include performance analysis
+        const originalLoadPlayerData = window.players?.loadPlayerData;
+        if (originalLoadPlayerData && window.players) {
+            window.players.loadPlayerData = function(player) {
+                // Call original function
+                originalLoadPlayerData.call(this, player);
+                
+                // Add performance analysis
+                setTimeout(() => {
+                    window.PlayerProfileEnhanced.loadPerformanceAnalysis(player);
+                }, 100);
+            };
+        }
+    </script>
+
+    <script src="assets/players.js"></script>
+    <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squad & Opponents - Guardians Esport</title>
+    <meta name="description" content="Meet the elite Ember Blaze squad and explore our opponents. Detailed player profiles and statistics.">
+    
+    <!-- Open Graph tags for Discord -->
+    <meta property="og:title" content="Squad & Opponents - Guardians Esport">
+    <meta property="og:description" content="Meet the elite Ember Blaze squad and explore our opponents. Detailed player profiles and statistics.">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/logo guardians.jpg" alt="Guardians Esport" class="logo-img">
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="squad.html" class="nav-link active">Squad / Opponents</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">COMPETITIVE HUB</h1>
+            <p class="page-subtitle">Strategic analysis and opponent intelligence for competitive excellence</p>
+        </div>
+    </section>
+
+    <!-- Tabs Navigation -->
+    <section class="tabs-section">
+        <div class="container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="opponents">
+                    Elite Opponents
+                </button>
+                <button class="tab-btn" data-tab="analytics">
+                    Match Analytics
+                </button>
+            </div>
+
+            <!-- Search Filter -->
+            <div class="search-container">
+                <input type="text" id="player-search" placeholder="Search players, teams, or roles..." class="search-input">
+                <div class="search-icon">🔍</div>
+            </div>
+
+            <!-- Opponents Tab Content (Ember Blaze sera ici) -->
+            <div class="tab-content active" id="opponents-tab">
+                <div class="opponents-header">
+                    <h2 class="squad-title">EMBER BLAZE (EMBR)</h2>
+                    <div class="team-overview">
+                        <div class="team-badge tier-s">Tier S+</div>
+                        <p class="squad-description">Elite 7-member squad featuring regional champions and mythic glory specialists. Known for macro control and late-game team fight execution.</p>
+                    </div>
+                </div>
+
+                <div class="players-grid premium-grid" id="players-grid">
+                    <!-- Players will be loaded dynamically via JavaScript -->
+                </div>
+
+                <div class="additional-opponents">
+                    <h3 class="section-subtitle">Other Competitive Teams</h3>
+                    <div class="opponents-grid">
+                        <div class="opponent-card">
+                            <div class="opponent-header">
+                                <div class="opponent-avatar">
+                                    <div class="team-emblem">SR</div>
+                                </div>
+                                <div class="opponent-info">
+                                    <h3 class="opponent-name">Storm Raiders</h3>
+                                    <span class="opponent-tier tier-a">Tier A</span>
+                                </div>
+                            </div>
+                            <div class="opponent-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Specialty</span>
+                                    <span class="stat-value">Aggressive Early Game</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Threat Level</span>
+                                    <span class="stat-value threat-high">High</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="opponent-card">
+                            <div class="opponent-header">
+                                <div class="opponent-avatar">
+                                    <div class="team-emblem">TF</div>
+                                </div>
+                                <div class="opponent-info">
+                                    <h3 class="opponent-name">Tidal Forces</h3>
+                                    <span class="opponent-tier tier-a">Tier A</span>
+                                </div>
+                            </div>
+                            <div class="opponent-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Specialty</span>
+                                    <span class="stat-value">Defensive Control</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Threat Level</span>
+                                    <span class="stat-value threat-medium">Medium</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="opponent-card">
+                            <div class="opponent-header">
+                                <div class="opponent-avatar">
+                                    <div class="team-emblem">PH</div>
+                                </div>
+                                <div class="opponent-info">
+                                    <h3 class="opponent-name">Phoenix Hunters</h3>
+                                    <span class="opponent-tier tier-b">Tier B</span>
+                                </div>
+                            </div>
+                            <div class="opponent-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Specialty</span>
+                                    <span class="stat-value">Comeback Potential</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Threat Level</span>
+                                    <span class="stat-value threat-medium">Medium</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="opponent-card">
+                            <div class="opponent-header">
+                                <div class="opponent-avatar">
+                                    <div class="team-emblem">VG</div>
+                                </div>
+                                <div class="opponent-info">
+                                    <h3 class="opponent-name">Void Guardians</h3>
+                                    <span class="opponent-tier tier-a">Tier A</span>
+                                </div>
+                            </div>
+                            <div class="opponent-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Specialty</span>
+                                    <span class="stat-value">Meta Adaptation</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Threat Level</span>
+                                    <span class="stat-value threat-high">High</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="opponent-card">
+                            <div class="opponent-header">
+                                <div class="opponent-avatar">
+                                    <div class="team-emblem">CS</div>
+                                </div>
+                                <div class="opponent-info">
+                                    <h3 class="opponent-name">Crimson Shadows</h3>
+                                    <span class="opponent-tier tier-b">Tier B</span>
+                                </div>
+                            </div>
+                            <div class="opponent-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Specialty</span>
+                                    <span class="stat-value">Assassin Focus</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Threat Level</span>
+                                    <span class="stat-value threat-medium">Medium</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="opponent-card">
+                            <div class="opponent-header">
+                                <div class="opponent-avatar">
+                                    <div class="team-emblem">FL</div>
+                                </div>
+                                <div class="opponent-info">
+                                    <h3 class="opponent-name">Frost Legion</h3>
+                                    <span class="opponent-tier tier-a">Tier A</span>
+                                </div>
+                            </div>
+                            <div class="opponent-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Specialty</span>
+                                    <span class="stat-value">Team Coordination</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Threat Level</span>
+                                    <span class="stat-value threat-high">High</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab Content -->
+            <div class="tab-content" id="analytics-tab">
+                <div class="analytics-header">
+                    <h2 class="squad-title">MATCH ANALYTICS</h2>
+                    <p class="squad-description">Comprehensive performance data and strategic insights</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Performance Metrics</h3>
+                        <div class="metrics-list">
+                            <div class="metric-item">
+                                <span class="metric-label">Average Win Rate</span>
+                                <span class="metric-value success">64.8%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Games Analyzed</span>
+                                <span class="metric-value">15,247</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Active Players</span>
+                                <span class="metric-value">7</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Hero Pool Diversity</span>
+                                <span class="metric-value">92%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Role Distribution</h3>
+                        <div class="role-breakdown">
+                            <div class="role-item">
+                                <span class="role-name">Tank/Support</span>
+                                <div class="role-bar">
+                                    <div class="role-fill" style="width: 28%"></div>
+                                </div>
+                                <span class="role-percent">28%</span>
+                            </div>
+                            <div class="role-item">
+                                <span class="role-name">Carry/Marksman</span>
+                                <div class="role-bar">
+                                    <div class="role-fill" style="width: 35%"></div>
+                                </div>
+                                <span class="role-percent">35%</span>
+                            </div>
+                            <div class="role-item">
+                                <span class="role-name">Mage/Assassin</span>
+                                <div class="role-bar">
+                                    <div class="role-fill" style="width: 37%"></div>
+                                </div>
+                                <span class="role-percent">37%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Win Rate Analysis</h3>
+                        <div class="metrics-list">
+                            <div class="metric-item">
+                                <span class="metric-label">Early Game (0-10 min)</span>
+                                <span class="metric-value">58.2%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Mid Game (10-20 min)</span>
+                                <span class="metric-value success">67.4%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Late Game (20+ min)</span>
+                                <span class="metric-value success">73.1%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Overtime (30+ min)</span>
+                                <span class="metric-value success">79.8%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Regional Performance</h3>
+                        <div class="metrics-list">
+                            <div class="metric-item">
+                                <span class="metric-label">Morocco Leaderboard</span>
+                                <span class="metric-value success">Top 5</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">MENA Region Rank</span>
+                                <span class="metric-value success">Top 15</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">International Recognition</span>
+                                <span class="metric-value">Growing</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Tournament Readiness</span>
+                                <span class="metric-value success">95%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card full-width">
+                        <h3>Strategic Insights</h3>
+                        <div class="insights-grid">
+                            <div class="insight-item">
+                                <div class="insight-icon">📈</div>
+                                <div class="insight-content">
+                                    <h4>Late Game Dominance</h4>
+                                    <p>Teams show 73% win rate in matches extending beyond 15 minutes, demonstrating superior macro control and team fight execution</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <div class="insight-icon">🎯</div>
+                                <div class="insight-content">
+                                    <h4>Objective Control</h4>
+                                    <p>Superior map control leads to 68% Baron/Turtle secure rate with coordinated rotations and vision dominance</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <div class="insight-icon">⚔️</div>
+                                <div class="insight-content">
+                                    <h4>Team Fight Execution</h4>
+                                    <p>Coordinated engagements result in 2.3 average KDA ratio with precise timing and role synchronization</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <div class="insight-icon">🛡️</div>
+                                <div class="insight-content">
+                                    <h4>Defensive Resilience</h4>
+                                    <p>Strong comeback potential with 34% win rate when behind at 10 minutes, showcasing mental fortitude</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <div class="insight-icon">🔥</div>
+                                <div class="insight-content">
+                                    <h4>Meta Adaptation</h4>
+                                    <p>Quick adaptation to meta shifts with 89% pick rate diversity across all roles and hero types</p>
+                                </div>
+                            </div>
+                            <div class="insight-item">
+                                <div class="insight-icon">🌟</div>
+                                <div class="insight-content">
+                                    <h4>Clutch Performance</h4>
+                                    <p>Exceptional performance under pressure with 82% win rate in decisive matches and tournament scenarios</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card full-width">
+                        <h3>Hero Meta Analysis</h3>
+                        <div class="hero-meta-grid">
+                            <div class="meta-category">
+                                <h4>S-Tier Picks</h4>
+                                <div class="hero-chips">
+                                    <span class="hero-chip tier-s">Lunox</span>
+                                    <span class="hero-chip tier-s">Angela</span>
+                                    <span class="hero-chip tier-s">Irithel</span>
+                                    <span class="hero-chip tier-s">Ruby</span>
+                                    <span class="hero-chip tier-s">Clint</span>
+                                </div>
+                            </div>
+                            <div class="meta-category">
+                                <h4>A-Tier Comfort</h4>
+                                <div class="hero-chips">
+                                    <span class="hero-chip tier-a">Yve</span>
+                                    <span class="hero-chip tier-a">Yi Sun-shin</span>
+                                    <span class="hero-chip tier-a">Mathilda</span>
+                                    <span class="hero-chip tier-a">X.Borg</span>
+                                    <span class="hero-chip tier-a">Fanny</span>
+                                </div>
+                            </div>
+                            <div class="meta-category">
+                                <h4>Flex Options</h4>
+                                <div class="hero-chips">
+                                    <span class="hero-chip tier-b">Gusion</span>
+                                    <span class="hero-chip tier-b">Estes</span>
+                                    <span class="hero-chip tier-b">Granger</span>
+                                    <span class="hero-chip tier-b">Selena</span>
+                                    <span class="hero-chip tier-b">Franco</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo_guardians.jpg" alt="Guardians Esport" class="footer-logo-img">
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2024 Guardians Esport. All rights reserved.</p>
+                    <p>⚔️ EMBR — Elite. Dedicated. Unstoppable.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CSS for hero meta analysis -->
+    <style>
+        .hero-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .meta-category h4 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .hero-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .hero-chip {
+            padding: 0.375rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-chip.tier-s {
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-gold-dark));
+            color: var(--primary-dark);
+        }
+
+        .hero-chip.tier-a {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+        .hero-chip.tier-b {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+    </style>
+
+    <script src="assets/players.js"></script>
+    <script src="assets/app.js"></script>
+</body>
+</html>

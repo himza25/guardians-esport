@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Statistics - Guardians Esport</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="padding: 20px; background: #0F1115; color: white;">
+    <h1>Statistics Test Page</h1>
+    
+    <div class="player-section">
+        <h3 class="section-title">🏆 Current Season — Picks & Stats</h3>
+        <div class="section-content">
+            <div class="table-container">
+                <table class="stats-table" id="test-table">
+                    <thead>
+                        <tr>
+                            <th>Hero</th>
+                            <th>Power</th>
+                            <th>Games</th>
+                            <th>WR</th>
+                        </tr>
+                    </thead>
+                    <tbody id="test-tbody">
+                        <!-- Test data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="testStats()" style="margin-top: 20px; padding: 10px; background: #3AA6FF; color: white; border: none; border-radius: 5px;">Load Test Stats</button>
+
+    <script src="assets/players.js"></script>
+    <script>
+        function testStats() {
+            console.log('Testing stats...');
+            console.log('PLAYERS object:', window.PLAYERS);
+            
+            // Test data
+            const testData = [
+                {Hero: "Lunox", Power: 4026, Games: 153, WR: 58.8},
+                {Hero: "Yve", Power: 4929, Games: 146, WR: 61.6},
+                {Hero: "Esmeralda", Power: 2590, Games: 70, WR: 55.7}
+            ];
+            
+            const tbody = document.getElementById('test-tbody');
+            console.log('Test tbody:', tbody);
+            
+            tbody.innerHTML = '';
+            
+            testData.forEach((stat, index) => {
+                const row = document.createElement('tr');
+                const winRateClass = getWinRateClass(stat.WR);
+                const winRateDisplay = `${stat.WR}%`;
+                
+                row.innerHTML = `
+                    <td><strong>${stat.Hero}</strong></td>
+                    <td>${stat.Power.toLocaleString()}</td>
+                    <td>${stat.Games}</td>
+                    <td><span class="wr-badge ${winRateClass}">${winRateDisplay}</span></td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+            
+            console.log('Test stats loaded');
+        }
+        
+        function getWinRateClass(winRate) {
+            if (winRate === "—" || winRate === undefined) return 'wr-warning';
+            const wr = parseFloat(winRate);
+            if (wr >= 60) return 'wr-success';
+            if (wr >= 50) return 'wr-warning';
+            return 'wr-danger';
+        }
+        
+        // Auto-load test on page load
+        window.addEventListener('load', testStats);
+    </script>
+</body>
+</html>

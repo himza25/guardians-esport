@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Links - Guardians Esport</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="padding: 40px; background: #0F1115; color: white; text-align: center;">
+    <h1>🛡️ Test Links - Guardians Esport</h1>
+    
+    <div style="max-width: 600px; margin: 0 auto;">
+        <h2>Player Profile Tests</h2>
+        <p>Click on the links below to test individual player profiles:</p>
+        
+        <div style="display: grid; gap: 15px; margin: 30px 0;">
+            <a href="player.html?id=besto-friendo" style="background: #3AA6FF; color: white; padding: 15px; text-decoration: none; border-radius: 8px; display: block;">
+                🧙‍♂️ Besto Friendo - MageMid
+            </a>
+            
+            <a href="player.html?id=kavex" style="background: #3AA6FF; color: white; padding: 15px; text-decoration: none; border-radius: 8px; display: block;">
+                🏹 Kavex - Carry
+            </a>
+            
+            <a href="player.html?id=ziad-abbou" style="background: #3AA6FF; color: white; padding: 15px; text-decoration: none; border-radius: 8px; display: block;">
+                🗡️ Ziad Abbou - Jungler
+            </a>
+            
+            <a href="player.html?id=kirito-47" style="background: #3AA6FF; color: white; padding: 15px; text-decoration: none; border-radius: 8px; display: block;">
+                ⚔️ KIRITO-47 - Flex
+            </a>
+        </div>
+        
+        <h2>Page Tests</h2>
+        <div style="display: grid; gap: 15px; margin: 30px 0;">
+            <a href="index.html" style="background: #B084F5; color: white; padding: 15px; text-decoration: none; border-radius: 8px; display: block;">
+                🏠 Home Page
+            </a>
+            
+            <a href="squad.html" style="background: #B084F5; color: white; padding: 15px; text-decoration: none; border-radius: 8px; display: block;">
+                ⚔️ Competitive Hub
+            </a>
+            
+            <a href="test-stats.html" style="background: #29CC7A; color: white; padding: 15px; text-decoration: none; border-radius: 8px; display: block;">
+                📊 Statistics Test
+            </a>
+        </div>
+        
+        <div style="margin-top: 40px; padding: 20px; background: rgba(58, 166, 255, 0.1); border-radius: 8px;">
+            <h3>Debug Info</h3>
+            <button onclick="checkPlayers()" style="background: #FFB020; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin: 10px;">
+                Check Players Data
+            </button>
+            <div id="debug-output" style="margin-top: 15px; font-family: monospace; text-align: left; background: #000; padding: 15px; border-radius: 5px;"></div>
+        </div>
+    </div>
+
+    <script src="assets/players.js"></script>
+    <script>
+        function checkPlayers() {
+            const output = document.getElementById('debug-output');
+            const info = [];
+            
+            info.push('🔍 PLAYERS Object Check:');
+            info.push(`Available: ${window.PLAYERS ? 'YES' : 'NO'}`);
+            
+            if (window.PLAYERS) {
+                info.push(`Players Count: ${Object.keys(window.PLAYERS).length}`);
+                info.push('Player IDs:');
+                Object.keys(window.PLAYERS).forEach(id => {
+                    const player = window.PLAYERS[id];
+                    info.push(`  - ${id}: ${player.name} (${player.currentSeason?.length || 0} current season stats)`);
+                });
+            }
+            
+            output.innerHTML = info.join('<br>');
+        }
+        
+        // Auto-check on page load
+        window.addEventListener('load', checkPlayers);
+    </script>
+</body>
+</html>
